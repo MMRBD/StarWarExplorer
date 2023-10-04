@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Star Wars Explorer</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="title_planets">Planets\n</string>
+    <string name="title_start_ship">Starships</string>
+</resources>
