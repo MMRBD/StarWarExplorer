@@ -1,40 +1,63 @@
 package com.mmrbd.starwarsexplorer
 
 import android.os.Bundle
-import com.google.android.material.bottomnavigation.BottomNavigationView
-import androidx.appcompat.app.AppCompatActivity
-import androidx.navigation.findNavController
+import android.view.View
+import androidx.activity.viewModels
+import androidx.core.view.doOnNextLayout
+import androidx.navigation.NavController
+import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
+import com.mmrbd.starwarsexplorer.base.activity.BaseActivity
+import com.mmrbd.starwarsexplorer.base.contract.BaseContract
 import com.mmrbd.starwarsexplorer.databinding.ActivityMainBinding
 import com.mmrbd.starwarsexplorer.utils.AppLogger
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class MainActivity : AppCompatActivity() {
+class MainActivity :
+    BaseActivity<BaseContract.State, ActivityMainBinding>(ActivityMainBinding::inflate) {
 
-    private lateinit var binding: ActivityMainBinding
+    private val visibleBottomNavigationIds = listOf(
+        R.id.navHome,
+        R.id.navPlanets,
+        R.id.navStarships,
+    )
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
+    private lateinit var navController: NavController
 
-        binding = ActivityMainBinding.inflate(layoutInflater)
-        setContentView(binding.root)
 
-        val navView: BottomNavigationView = binding.navView
+    override val model: ManinViewModel by viewModels()
 
-        AppLogger.log("Init: ${MainActivity::class.java.toString()}")
+    override fun ActivityMainBinding.initialiseView(savedInstanceState: Bundle?) {
+        val navHostFragment =
+            supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
+        navController = navHostFragment.navController
 
-        val navController = findNavController(R.id.nav_host_fragment_activity_main)
-        // Passing each menu ID as a set of Ids because each
-        // menu should be considered as top level destinations.
-        val appBarConfiguration = AppBarConfiguration(
-            setOf(
-                R.id.navigation_home, R.id.navigation_dashboard, R.id.navigation_notifications
+        setupActionBarWithNavController(
+            navController, AppBarConfiguration(
+                visibleBottomNavigationIds.toSet()
             )
         )
-        setupActionBarWithNavController(navController, appBarConfiguration)
+
         navView.setupWithNavController(navController)
+
+        navController.addOnDestinationChangedListener { _, destination, _ ->
+            val visibility =
+                if (visibleBottomNavigationIds.any { inside -> inside == destination.id }) {
+                    View.VISIBLE
+                } else {
+                    View.GONE
+                }
+
+            root.doOnNextLayout {
+                navView.visibility = visibility
+            }
+        }
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        return navController.popBackStack() || super.onSupportNavigateUp()
     }
 }
