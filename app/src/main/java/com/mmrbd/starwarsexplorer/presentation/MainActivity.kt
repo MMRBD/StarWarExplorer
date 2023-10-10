@@ -1,18 +1,22 @@
-package com.mmrbd.starwarsexplorer
+package com.mmrbd.starwarsexplorer.presentation
 
 import android.os.Bundle
+import android.provider.CalendarContract.Colors
 import android.view.View
+import android.view.Window
+import android.view.WindowManager
 import androidx.activity.viewModels
+import androidx.core.content.ContextCompat
 import androidx.core.view.doOnNextLayout
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
+import com.mmrbd.starwarsexplorer.R
 import com.mmrbd.starwarsexplorer.base.activity.BaseActivity
 import com.mmrbd.starwarsexplorer.base.contract.BaseContract
 import com.mmrbd.starwarsexplorer.databinding.ActivityMainBinding
-import com.mmrbd.starwarsexplorer.utils.AppLogger
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -55,6 +59,11 @@ class MainActivity :
                 navView.visibility = visibility
             }
         }
+
+
+        val window: Window = window
+        window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
+        window.statusBarColor = ContextCompat.getColor(this@MainActivity, R.color.black)
     }
 
     override fun onSupportNavigateUp(): Boolean {
