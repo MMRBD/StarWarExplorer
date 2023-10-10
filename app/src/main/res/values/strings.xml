@@ -5,4 +5,35 @@
     <string name="title_notifications">Notifications</string>
     <string name="title_planets">Planets\n</string>
     <string name="title_start_ship">Starships</string>
+    <string name="character_details">Character Details</string>
+    <string name="planet_name">Planet Name</string>
+    <string name="diameter">Diameter</string>
+    <string name="populations">Population</string>
+    <string name="manufacturer">Manufacturer</string>
+    <string name="model">Model</string>
+    <string name="class_">Class</string>
+    <string name="cost">Cost</string>
+    <string name="dob">DOB:  %1$s</string>
+    <string name="height">Height:  %1$s</string>
+    <string name="mass">Mass:  %1$s</string>
+    <string name="gender">Gender:  %1$s</string>
+    <string name="character_name">Character Name</string>
+    <string name="eye_color">Eye Color: %1$s</string>
+    <string name="skin_color">Skin Color: %1$s</string>
+    <string name="hair_color">Hair Color: %1$s</string>
+
+    //Network  Error
+    <string name="failure_bad_request">Bad Request.</string>
+    <string name="failure_can_not_connect_to_the_server">Can not connect to the server.</string>
+    <string name="failure_forbidden_request">Forbidden Request.</string>
+    <string name="failure_internal_server_error">Internal server error.</string>
+    <string name="failure_method_not_allowed">Method not allowed.</string>
+    <string name="failure_no_internet_available">No internet available.</string>
+    <string name="failure_not_exist_in_cache">Not exist in cache.</string>
+    <string name="failure_not_found">Not found.</string>
+    <string name="failure_too_many_request">Too many request.</string>
+    <string name="failure_unauthorized_error">Unauthorized error.</string>
+
+    <string name="failure_failed_to_cache">Failed to cache.</string>
+
 </resources>
