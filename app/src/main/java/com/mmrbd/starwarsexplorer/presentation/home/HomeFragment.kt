@@ -9,12 +9,11 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.mmrbd.starwarsexplorer.base.fragment.BaseFragment
-import com.mmrbd.starwarsexplorer.data.remote.error.Failure
 import com.mmrbd.starwarsexplorer.databinding.FragmentHomeBinding
 import com.mmrbd.starwarsexplorer.presentation.home.adapter.CharacterAdapter
 import com.mmrbd.starwarsexplorer.presentation.home.contract.HomeContract
 import com.mmrbd.starwarsexplorer.utils.AppLogger
-import com.mmrbd.starwarsexplorer.utils.NetworkFailureMessage
+import com.mmrbd.starwarsexplorer.utils.network.NetworkFailureMessage
 import com.mmrbd.starwarsexplorer.utils.Result
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
