@@ -7,7 +7,7 @@ import com.mmrbd.starwarsexplorer.utils.Result
 import kotlinx.coroutines.flow.Flow
 
 interface StarWarsRepository {
-     fun getCharacters(): Flow<Result<List<CharacterEntity>>>
+    fun getCharacters(): Flow<Result<List<CharacterEntity>>>
     fun getCharacterDetails(id: Int): Flow<CharacterEntity>
     fun getPlanets(): Flow<Result<List<PlanetEntity>>>
     fun getStarships(): Flow<Result<List<StarshipEntity>>>
