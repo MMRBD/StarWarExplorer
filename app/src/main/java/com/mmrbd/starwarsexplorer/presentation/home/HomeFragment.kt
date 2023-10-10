@@ -8,20 +8,24 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
-import com.mmrbd.starwarsexplorer.R
 import com.mmrbd.starwarsexplorer.base.fragment.BaseFragment
+import com.mmrbd.starwarsexplorer.data.remote.error.Failure
 import com.mmrbd.starwarsexplorer.databinding.FragmentHomeBinding
 import com.mmrbd.starwarsexplorer.presentation.home.adapter.CharacterAdapter
 import com.mmrbd.starwarsexplorer.presentation.home.contract.HomeContract
 import com.mmrbd.starwarsexplorer.utils.AppLogger
+import com.mmrbd.starwarsexplorer.utils.NetworkFailureMessage
 import com.mmrbd.starwarsexplorer.utils.Result
 import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
 
 @AndroidEntryPoint
 class HomeFragment :
     BaseFragment<HomeContract.State, FragmentHomeBinding>(FragmentHomeBinding::inflate) {
+
+    @Inject
+    lateinit var networkFailureMessage: NetworkFailureMessage
 
     private lateinit var adapter: CharacterAdapter
 
@@ -31,14 +35,8 @@ class HomeFragment :
     override fun FragmentHomeBinding.initialiseView(savedInstanceState: Bundle?) {
 
         adapter = CharacterAdapter {
-            Toast.makeText(context, it.name, Toast.LENGTH_SHORT).show()
-
-            val bundle = Bundle()
-            bundle.putParcelable("Key", it)
-
             findNavController().navigate(
-                R.id.navCharacterDetails,
-                bundle
+                HomeFragmentDirections.actionNavHomeToNavCharacterDetails(it)
             )
         }
         rcvStarWarsCharacter.layoutManager = LinearLayoutManager(context)
@@ -50,7 +48,6 @@ class HomeFragment :
                 VERTICAL
             )
         )
-
     }
 
     override fun FragmentHomeBinding.render(viewState: HomeContract.State) {
@@ -71,11 +68,14 @@ class HomeFragment :
 
                     is Result.Error -> {
                         progressBarLoading.isVisible = false
-//                        Toast.makeText(
-//                            context,
-//                            viewState.data.error!!.message,
-//                            Toast.LENGTH_SHORT
-//                        ).show()
+                        Toast.makeText(
+                            context,
+                            networkFailureMessage.handleFailure(viewState.data.throwable),
+                            Toast.LENGTH_SHORT
+                        ).show()
+
+
+                        AppLogger.log("ERROR: ${viewState.data.error}")
 
                     }
 
