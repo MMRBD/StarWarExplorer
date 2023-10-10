@@ -11,17 +11,14 @@ import kotlinx.coroutines.cancel
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 
-abstract class BaseActivity<ViewState : Any, Binding : ViewBinding> (bindingInflater: (LayoutInflater) -> Binding) :
-    BaseBinding<Binding>(bindingInflater) {
+abstract class BaseActivity<ViewState : Any, Binding : ViewBinding>(bindingInflater: (LayoutInflater) -> Binding) :
+    BaseBindingActivity<Binding>(bindingInflater) {
 
-    abstract val model: BaseViewModel<ViewState, *>
     private val viewScope = CoroutineScope(Dispatchers.Main)
+    abstract val model: BaseViewModel<ViewState, *>
 
-    override fun onCreate(savedInstanceState: Bundle?) {
+    final override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-
-        AppLogger.log("BaseActivity")
         model.viewStates()
             .forEach { it.onEach { viewState -> binding?.render(viewState) }.launchIn(viewScope) }
     }
@@ -34,6 +31,4 @@ abstract class BaseActivity<ViewState : Any, Binding : ViewBinding> (bindingInfl
         viewScope.cancel()
         super.onDestroy()
     }
-
-
 }
