@@ -7,7 +7,7 @@ import com.mmrbd.starwarsexplorer.domain.entities.PlanetEntity
 import com.mmrbd.starwarsexplorer.domain.entities.StarshipEntity
 import com.mmrbd.starwarsexplorer.domain.repositories.StarWarsRepository
 import com.mmrbd.starwarsexplorer.utils.Result
-import com.mmrbd.starwarsexplorer.utils.networkBoundResource
+import com.mmrbd.starwarsexplorer.utils.network.networkBoundResource
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 
