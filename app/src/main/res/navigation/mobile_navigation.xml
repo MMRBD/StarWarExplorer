@@ -3,23 +3,40 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/navigation_home">
+    app:startDestination="@+id/navHome">
 
     <fragment
-        android:id="@+id/navigation_home"
-        android:name="com.mmrbd.starwarsexplorer.ui.home.HomeFragment"
+        android:id="@+id/navHome"
+        android:name="com.mmrbd.starwarsexplorer.presentation.home.HomeFragment"
         android:label="@string/title_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_navHome_to_navCharacterDetails"
+            app:destination="@id/navCharacterDetails" />
+    </fragment>
 
     <fragment
-        android:id="@+id/navigation_dashboard"
-        android:name="com.mmrbd.starwarsexplorer.ui.dashboard.DashboardFragment"
-        android:label="@string/title_dashboard"
-        tools:layout="@layout/fragment_dashboard" />
+        android:id="@+id/navStarships"
+        android:name="com.mmrbd.starwarsexplorer.presentation.starship.StarshipFragment"
+        android:label="@string/title_start_ship"
+        tools:layout="@layout/fragment_planet" />
 
     <fragment
-        android:id="@+id/navigation_notifications"
-        android:name="com.mmrbd.starwarsexplorer.ui.notifications.NotificationsFragment"
-        android:label="@string/title_notifications"
-        tools:layout="@layout/fragment_notifications" />
+        android:id="@+id/navPlanets"
+        android:name="com.mmrbd.starwarsexplorer.presentation.planet.PlanetFragment"
+        android:label="@string/title_planets"
+        tools:layout="@layout/fragment_starship" />
+    <fragment
+        android:id="@+id/navCharacterDetails"
+        android:name="com.mmrbd.starwarsexplorer.presentation.details.CharacterDetailsFragment"
+        android:label="@string/character_details"
+        tools:layout="@layout/fragment_character_details" >
+
+
+        <argument
+            android:name="CharacterEntity"
+            app:argType="com.mmrbd.starwarsexplorer.domain.entities.CharacterEntity" />
+
+
+    </fragment>
 </navigation>
