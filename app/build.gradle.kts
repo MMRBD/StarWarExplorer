@@ -65,7 +65,6 @@ dependencies {
     implementation("androidx.navigation:navigation-fragment-ktx:2.7.3")
     implementation("androidx.navigation:navigation-ui-ktx:2.7.3")
 
-
     //Hilt
     implementation("com.google.dagger:hilt-android:2.48.1")
     kapt("com.google.dagger:hilt-android-compiler:2.48.1")
@@ -79,37 +78,30 @@ dependencies {
     implementation("com.squareup.okhttp3:okhttp:4.11.0")
     implementation("com.squareup.okhttp3:logging-interceptor:4.11.0")
 
-
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.5.0")
 
-
-
-    val room_version = "2.5.2"
-
-    implementation("androidx.room:room-runtime:$room_version")
-    annotationProcessor("androidx.room:room-compiler:$room_version")
-    testImplementation("androidx.room:room-testing:$room_version")
-    kapt("androidx.room:room-compiler:$room_version")
-    implementation("androidx.room:room-ktx:$room_version")
+    implementation("androidx.room:room-runtime:2.5.2")
+    annotationProcessor("androidx.room:room-compiler:2.5.2")
+    testImplementation("androidx.room:room-testing:2.5.2")
+    kapt("androidx.room:room-compiler:2.5.2")
+    implementation("androidx.room:room-ktx:2.5.2")
 
     //Gson
     implementation("com.google.code.gson:gson:2.10.1")
 
-
     //Test
-    androidTestImplementation ("androidx.arch.core:core-testing:2.2.0")
-    testImplementation ("androidx.arch.core:core-testing:2.2.0")
+    androidTestImplementation("androidx.arch.core:core-testing:2.2.0")
+    testImplementation("androidx.arch.core:core-testing:2.2.0")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
     testImplementation("junit:junit:4.13.2")
     testImplementation("org.robolectric:robolectric:4.9")
     testImplementation("androidx.test:core-ktx:1.5.0")
 
-
     //MockK
-    testImplementation ("io.mockk:mockk:1.12.0")
-    androidTestImplementation ("io.mockk:mockk-android:1.12.0")
+    testImplementation("io.mockk:mockk:1.12.0")
+    androidTestImplementation("io.mockk:mockk-android:1.12.0")
 
-    testImplementation ("io.kotlintest:kotlintest-runner-junit5:3.3.2")
-    testImplementation ("com.squareup.okhttp3:mockwebserver:4.10.0")
+    testImplementation("io.kotlintest:kotlintest-runner-junit5:3.3.2")
+    testImplementation("com.squareup.okhttp3:mockwebserver:4.10.0")
 }
