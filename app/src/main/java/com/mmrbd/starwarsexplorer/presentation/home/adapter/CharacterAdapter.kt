@@ -7,7 +7,6 @@ import com.mmrbd.starwarsexplorer.base.adapters.BaseListAdapter
 import com.mmrbd.starwarsexplorer.base.adapters.BindingViewHolder
 import com.mmrbd.starwarsexplorer.databinding.ItemCharacterBinding
 import com.mmrbd.starwarsexplorer.domain.entities.CharacterEntity
-import com.mmrbd.starwarsexplorer.presentation.planet.adapter.PlanetAdapter
 
 class CharacterAdapter(private val onItemClickListener: (CharacterEntity) -> Unit) :
     BaseListAdapter<CharacterEntity, CharacterAdapter.CharacterViewHolder>() {
