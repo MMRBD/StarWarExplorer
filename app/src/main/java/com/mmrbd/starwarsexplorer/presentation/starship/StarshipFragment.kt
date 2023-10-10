@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.mmrbd.starwarsexplorer.base.fragment.BaseFragment
 import com.mmrbd.starwarsexplorer.databinding.FragmentStarshipBinding
-import com.mmrbd.starwarsexplorer.presentation.home.contract.HomeContract
+import com.mmrbd.starwarsexplorer.presentation.starship.adapter.StarshipAdapter
 import com.mmrbd.starwarsexplorer.presentation.starship.contract.StarshipContract
 import com.mmrbd.starwarsexplorer.utils.AppLogger
 import com.mmrbd.starwarsexplorer.utils.Result
