@@ -2,18 +2,19 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/navigation_home"
+        android:id="@+id/navHome"
         android:icon="@drawable/ic_star_wars"
         android:title="@string/title_home" />
 
     <item
-        android:id="@+id/navigation_dashboard"
+        android:id="@+id/navPlanets"
+        android:icon="@drawable/ic_planet"
+        android:title="@string/title_planets" />
+
+    <item
+        android:id="@+id/navStarships"
         android:icon="@drawable/ic_starship"
         android:title="@string/title_start_ship" />
 
-    <item
-        android:id="@+id/navigation_notifications"
-        android:icon="@drawable/ic_planet"
-        android:title="@string/title_planets" />
 
 </menu>
