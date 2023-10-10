@@ -1,8 +1,8 @@
 package com.mmrbd.starwarsexplorer.di
 
 import android.content.Context
-import com.mmrbd.starwarsexplorer.utils.NetworkFailureMessage
-import com.mmrbd.starwarsexplorer.utils.NetworkFailureMessageImpl
+import com.mmrbd.starwarsexplorer.utils.network.NetworkFailureMessage
+import com.mmrbd.starwarsexplorer.utils.network.NetworkFailureMessageImpl
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
