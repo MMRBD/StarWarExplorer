@@ -1,4 +1,4 @@
-package com.mmrbd.starwarsexplorer.extensions
+package com.mmrbd.starwarsexplorer.utils.extensions
 
 import com.mmrbd.starwarsexplorer.utils.AppLogger
 import kotlinx.coroutines.CoroutineScope

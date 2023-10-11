@@ -4,8 +4,8 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import androidx.navigation.NavDirections
 import com.mmrbd.starwarsexplorer.base.navigation.NavEvent
-import com.mmrbd.starwarsexplorer.extensions.safeCollect
-import com.mmrbd.starwarsexplorer.extensions.safeCoroutineExceptionHandler
+import com.mmrbd.starwarsexplorer.utils.extensions.safeCollect
+import com.mmrbd.starwarsexplorer.utils.extensions.safeCoroutineExceptionHandler
 import com.mmrbd.starwarsexplorer.utils.AppLogger
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
