@@ -23,7 +23,7 @@ android {
 
 
         //build config
-        buildConfigField("String", "BASE_API_URL", "\"https://swapi.dev/api/\"")
+        buildConfigField("String", "BASE_API_URL", project.properties["BASE_API_URL"].toString())
     }
 
     buildTypes {
