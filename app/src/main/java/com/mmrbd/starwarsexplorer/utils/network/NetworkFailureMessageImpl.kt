@@ -4,7 +4,15 @@ import android.content.Context
 import com.mmrbd.starwarsexplorer.R
 import com.mmrbd.starwarsexplorer.data.remote.error.Failure
 
+/**
+ * This the interface for Network HTTP error handing interface
+ */
 interface NetworkFailureMessage {
+
+    /**
+     * @return String of the HTTP message
+     * @param failure the failure type
+     */
     fun handleFailure(failure: Failure): String
 }
 

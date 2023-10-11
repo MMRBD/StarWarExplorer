@@ -22,6 +22,7 @@ inline fun <ResultType, RequestType> networkBoundResource(
         try {
             //Make api call for fetch data
             when (val resultType = fetch()) {
+                // If found error from api send it back to the UI
                 is Result.Error<*> -> {
                     query().map {
                         Result.Error(resultType.throwable, it)
