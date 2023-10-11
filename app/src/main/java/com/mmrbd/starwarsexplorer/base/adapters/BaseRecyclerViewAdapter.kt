@@ -5,7 +5,6 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import java.util.*
 
-@SuppressWarnings("TooManyFunctions")
 abstract class BaseRecyclerViewAdapter<T> : RecyclerView.Adapter<BaseViewHolder<T>>() {
 
     protected var listItems: ArrayList<T>? = ArrayList()

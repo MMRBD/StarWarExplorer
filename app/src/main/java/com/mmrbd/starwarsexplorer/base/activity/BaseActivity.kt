@@ -23,6 +23,10 @@ abstract class BaseActivity<ViewState : Any, Binding : ViewBinding>(bindingInfla
             .forEach { it.onEach { viewState -> binding?.render(viewState) }.launchIn(viewScope) }
     }
 
+    /**
+     * Render the view when viewState changes
+     * @param viewState 
+     */
     protected open fun Binding.render(viewState: ViewState) {
         // template
     }

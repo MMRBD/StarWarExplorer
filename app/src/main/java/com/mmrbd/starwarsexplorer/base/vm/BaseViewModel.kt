@@ -50,12 +50,18 @@ abstract class BaseViewModel<BaseViewState : Any, EVENT> : ViewModel() {
     fun viewStates(): Collection<Flow<BaseViewState>> = viewStateMap.values
 
 
+    /** This is the UI event handle method
+     * @param eventType the UI event type
+     */
     abstract fun onTriggerEvent(eventType: EVENT)
 
     init {
         AppLogger.log("Init $className")
     }
 
+    /** This is consumer method in the viewModel and change the UI state
+     * @param flowFactory
+     */
     @Suppress("UNCHECKED_CAST", "DEPRECATION")
     protected inline fun <reified T : BaseViewState> query(noinline flowFactory: () -> Flow<T>) =
         query(
@@ -63,6 +69,9 @@ abstract class BaseViewModel<BaseViewState : Any, EVENT> : ViewModel() {
             flowFactory as () -> Flow<BaseViewState>
         )
 
+    /** This is coroutine method run from viewModel
+     * @param completable
+     */
     protected fun runCommand(completable: suspend () -> Unit) {
         bgScope.launch(
             safeCoroutineExceptionHandler { _, _ ->
@@ -78,6 +87,10 @@ abstract class BaseViewModel<BaseViewState : Any, EVENT> : ViewModel() {
         super.onCleared()
     }
 
+    /** viewState observer method
+     *  @param flowFactory
+     *  @param viewStateClass
+     */
     @Deprecated("Internal usage only! Visible because of inlining")
     protected fun query(
         viewStateClass: KClass<BaseViewState>,
