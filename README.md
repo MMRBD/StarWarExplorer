@@ -1,4 +1,5 @@
 # Star War Explorer
+This is demo project, Using android modern development technology for scalable, maintainable and testable code.
 
 ## Build and Run
 - Clone the Repository. 
@@ -10,15 +11,12 @@ $ git clone https://github.com/MMRBD/StarWarExplorer.git
 ## Testing
 - Run the command `gradle app:testDebugUnitTest` (Debug) or `gradle app:testReleaseUnitTest` (Release).
 
-
-## Project Detail
-This is demo project, Using android modern development technology for scalable, maintainable and testable code.
-
+## Stack Used
 - Clean Architecture
 - MVVM
 - Dependency Injection (Hilt)
 - REST
-- Local caching
+- Local caching (Room)
 - Testing
 
 ## Testing
@@ -35,4 +33,4 @@ This is demo project, Using android modern development technology for scalable, 
 - Gson
 - Hilt
 - JUnit
-- Android Test Core (KTX)
+- Android Test Core
