@@ -20,6 +20,10 @@ class HomeViewModel @Inject constructor(
     }
 
     override fun onTriggerEvent(eventType: HomeContract.Event) {
-        TODO("Not yet implemented")
+        when (eventType) {
+            is HomeContract.Event.GotoDetailsPage -> {
+                navigate(HomeFragmentDirections.actionNavHomeToNavCharacterDetails(eventType.characterEntity))
+            }
+        }
     }
 }

@@ -34,10 +34,9 @@ class HomeFragment :
     override fun FragmentHomeBinding.initialiseView(savedInstanceState: Bundle?) {
 
         adapter = CharacterAdapter {
-            findNavController().navigate(
-                HomeFragmentDirections.actionNavHomeToNavCharacterDetails(it)
-            )
+            model.onTriggerEvent(HomeContract.Event.GotoDetailsPage(it))
         }
+
         rcvStarWarsCharacter.layoutManager = LinearLayoutManager(context)
         rcvStarWarsCharacter.adapter = adapter
 
@@ -77,12 +76,8 @@ class HomeFragment :
                         AppLogger.log("ERROR: ${viewState.data.error}")
 
                     }
-
-                    else -> {}
                 }
             }
-
-            else -> {}
         }
     }
 }
