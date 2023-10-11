@@ -1,10 +1,12 @@
 package com.mmrbd.starwarsexplorer.base.vm
 
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
+import androidx.navigation.NavDirections
+import com.mmrbd.starwarsexplorer.base.navigation.NavEvent
 import com.mmrbd.starwarsexplorer.extensions.safeCollect
 import com.mmrbd.starwarsexplorer.extensions.safeCoroutineExceptionHandler
 import com.mmrbd.starwarsexplorer.utils.AppLogger
-import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob
@@ -16,7 +18,7 @@ import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.launch
 import kotlin.reflect.KClass
 
-abstract class  BaseViewModel<BaseViewState : Any, EVENT> : ViewModel() {
+abstract class BaseViewModel<BaseViewState : Any, EVENT> : ViewModel() {
 
     private val className = this::class.simpleName
 
@@ -24,6 +26,26 @@ abstract class  BaseViewModel<BaseViewState : Any, EVENT> : ViewModel() {
     private val job = SupervisorJob()
     private val bgScope: CoroutineScope = CoroutineScope(Dispatchers.IO + job)
 
+    val navigation = MutableSharedFlow<NavEvent>()
+
+    /**
+     * This is for navigation to fragment
+     * @param navDirections the direction of fragment
+     */
+    fun navigate(navDirections: NavDirections) {
+        viewModelScope.launch {
+            navigation.emit(NavEvent.ToDirection(navDirections))
+        }
+    }
+
+    /**
+     * This is for navigation back
+     */
+    fun navigateBack() {
+        viewModelScope.launch {
+            navigation.emit(NavEvent.Back)
+        }
+    }
 
     fun viewStates(): Collection<Flow<BaseViewState>> = viewStateMap.values
 
