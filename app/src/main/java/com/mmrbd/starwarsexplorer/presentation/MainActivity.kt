@@ -1,7 +1,6 @@
 package com.mmrbd.starwarsexplorer.presentation
 
 import android.os.Bundle
-import android.provider.CalendarContract.Colors
 import android.view.View
 import android.view.Window
 import android.view.WindowManager

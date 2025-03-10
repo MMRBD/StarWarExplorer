@@ -32,8 +32,7 @@ class CharacterAdapter(private val onItemClickListener: (CharacterEntity) -> Uni
         override fun ItemCharacterBinding.render(item: CharacterEntity) {
             this@CharacterViewHolder.item = item
             tvName.text = item.name
-            tvGender.text = item.gender
-            tvDOB.text = itemView.context.getString(R.string.dob, item.birthYear)
+            tvDOB.text = item.birthYear
         }
     }
 

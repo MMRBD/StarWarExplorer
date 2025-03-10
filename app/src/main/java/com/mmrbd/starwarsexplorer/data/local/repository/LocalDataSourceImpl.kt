@@ -8,6 +8,7 @@ import com.mmrbd.starwarsexplorer.data.mapper.toDataModel
 import com.mmrbd.starwarsexplorer.domain.entities.CharacterEntity
 import com.mmrbd.starwarsexplorer.domain.entities.PlanetEntity
 import com.mmrbd.starwarsexplorer.domain.entities.StarshipEntity
+import com.mmrbd.starwarsexplorer.utils.AppLogger
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import javax.inject.Inject
@@ -22,6 +23,7 @@ class LocalDataSourceImpl @Inject constructor(
     }
 
     override fun getCharacters(): Flow<List<CharacterEntity>> = flow {
+        AppLogger.log("Call Again")
         emit(characterDao.getCharacters().map { it.toDomain() })
     }
 

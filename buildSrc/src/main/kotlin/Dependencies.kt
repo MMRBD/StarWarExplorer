@@ -9,6 +9,10 @@ object Dependencies {
         const val lifecycleLivedata = "androidx.lifecycle:lifecycle-livedata-ktx:2.6.2"
         const val lifecycleViewmodel = "androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.2"
 
+
+    }
+
+    object Navigation {
         private const val navigation = "2.7.4"
         const val navigationFragment = "androidx.navigation:navigation-fragment-ktx:$navigation"
         const val navigationUi = "androidx.navigation:navigation-ui-ktx:$navigation"
@@ -56,6 +60,17 @@ object Dependencies {
         const val roomTest = "androidx.room:room-testing:$version"
         const val roomKapt = "androidx.room:room-compiler:$version"
     }
+
+    object Mock {
+        private const val version = "1.12.0"
+
+        const val mock = "io.mockk:mockk:$version"
+    }
+}
+
+fun DependencyHandler.mock() {
+    testImplementation(Dependencies.Mock.mock)
+    androidTestImplementation(Dependencies.Mock.mock)
 }
 
 fun DependencyHandler.fragment() {
@@ -84,5 +99,10 @@ fun DependencyHandler.retrofit() {
 fun DependencyHandler.okHttp() {
     implementation(Dependencies.OkHttp.okhttp)
     implementation(Dependencies.OkHttp.interceptor)
+}
+
+fun DependencyHandler.navigation() {
+    implementation(Dependencies.Navigation.navigationFragment)
+    implementation(Dependencies.Navigation.navigationUi)
 }
 

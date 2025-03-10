@@ -26,12 +26,12 @@
         android:name="com.mmrbd.starwarsexplorer.presentation.planet.PlanetFragment"
         android:label="@string/title_planets"
         tools:layout="@layout/fragment_starship" />
+
     <fragment
         android:id="@+id/navCharacterDetails"
         android:name="com.mmrbd.starwarsexplorer.presentation.details.CharacterDetailsFragment"
         android:label="@string/character_details"
         tools:layout="@layout/fragment_character_details" >
-
 
         <argument
             android:name="CharacterEntity"

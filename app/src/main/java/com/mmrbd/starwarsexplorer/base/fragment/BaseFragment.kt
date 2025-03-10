@@ -65,6 +65,7 @@ abstract class BaseFragment<ViewState : Any, Binding : ViewBinding>(private val 
     }
 
     override fun onDestroyView() {
+        AppLogger.log("Fragment onDestroyed:: ${this::class.simpleName}")
         binding = null
         viewScope.cancel()
         super.onDestroyView()
